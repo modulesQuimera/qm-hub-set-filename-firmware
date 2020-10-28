@@ -1,0 +1,26 @@
+{
+  "name": "qm-set-filename-firmware",
+  "version": "1.0.0",
+  "description": "Set filename of firmware",
+  "main": "set_filename_firmware.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/modulesQuimera/qm-hub-set-filename-firmware.git"
+  },
+  "keywords": ["quimera", "hub", "JIG"],
+  "author": "HUB-LSE",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/modulesQuimera/qm-hub-set-filename-firmware/issues"
+  },
+  "homepage": "https://github.com/modulesQuimera/qm-hub-set-filename-firmware#readme",
+  "node-red" : {
+    "nodes": {
+        "set_filename_firmware": "set_filename_firmware.js"
+    }
+  }
+}
+
