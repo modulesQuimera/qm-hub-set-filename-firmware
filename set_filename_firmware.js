@@ -14,7 +14,7 @@ module.exports = function(RED) {
 			var file = globalContext.get("exportFile");
             var slot = globalContext.get("slot");
             
-            var command
+            var command = {};
 
 			if (node.compare_select == "lora"){
                 command = {
@@ -24,7 +24,7 @@ module.exports = function(RED) {
                     compare: { status: { "==" : true}},
                     filename: node.filename,
                     boundrate: parseInt(node.boundrate)
-                }
+                };
             }else {
                 command = {
                     type: "processing_modular_V1_0",
@@ -32,26 +32,11 @@ module.exports = function(RED) {
                     method: "stm_recorder",
                     compare: { status: { "==" : true}},
                     filename: node.filename,
-                }
+                };
             }
 			
+			file.firmwares.push(command);
 			
-			if(!(slot === "begin" || slot === "end")){
-                if(currentMode == "test"){
-                    file.slots[slot].jig_test.push(command);
-                }
-                else{
-                    file.slots[slot].jig_error.push(command);
-                }
-            }
-            else{
-                if(slot === "begin"){
-                    file.slots[0].jig_test.push(command);
-                }
-                else{
-                    file.slots[3].jig_test.push(command);
-                }
-            }
 			globalContext.set("exportFile", file);
 			console.log(command)
 			node.send(msg);
