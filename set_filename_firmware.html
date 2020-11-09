@@ -5,7 +5,7 @@
 		defaults: {
 			compare_select: {value:"lora", required:true},
 			filename: {value: ""},
-			boundrate: {value: null},
+			baud_rate: {value: null},
 			name:{value:""}
 		},
 		inputs:1,
@@ -20,8 +20,8 @@
 
 			$("#node-input-compare_select").on("change", function(e) {
 				var compare = $(this).val();
-				if (compare === "lora"){ $(".node-input-filename").show(); $(".node-input-boundrate").show(); }
-				if (compare === "stm"){ $(".node-input-filename").show(); $(".node-input-boundrate").hide(); }
+				if (compare === "lora"){ $(".node-input-filename").show(); $(".node-input-baud_rate").show(); }
+				if (compare === "stm"){ $(".node-input-filename").show(); $(".node-input-baud_rate").hide(); }
 				
 			});
 
@@ -80,10 +80,10 @@
                         <input type="text" id="node-input-filename" style=" width:100px !important ">
                     </div>
                 </div>
-                <div class="node-input-boundrate" style="display: none;">
+                <div class="node-input-baud_rate" style="display: none;">
                     <div class="columm">
-                        <label for="node-input-boundrate" style="margin-top: 8px; width: max-content !important"><i class="icon-tag"></i>Boundrate: </label>
-                        <input type="number" id="node-input-boundrate" style=" width:100px !important ">
+                        <label for="node-input-baud_rate" style="margin-top: 8px; width: max-content !important"><i class="icon-tag"></i>baud_rate: </label>
+                        <input type="number" id="node-input-baud_rate" style=" width:100px !important ">
                     </div>
                 </div>
             </div>

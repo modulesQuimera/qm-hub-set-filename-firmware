@@ -4,7 +4,7 @@ module.exports = function(RED) {
 		RED.nodes.createNode(this,config);
 		this.compare_select = config.compare_select;
 		this.filename = config.filename;
-		this.boundrate = config.boundrate;
+		this.baud_rate = config.baud_rate;
 		var node = this;
 		
 		node.on('input', function(msg) {
@@ -23,7 +23,7 @@ module.exports = function(RED) {
                     method: "lora_recorder",
                     compare: { status: { "==" : true}},
                     filename: node.filename,
-                    boundrate: parseInt(node.boundrate)
+                    baud_rate: parseInt(node.baud_rate)
                 };
             }else {
                 command = {
