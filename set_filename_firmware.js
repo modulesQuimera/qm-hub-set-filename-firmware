@@ -34,8 +34,25 @@ module.exports = function(RED) {
                     filename: node.filename,
                 };
             }
+
+            if(!(slot === "begin" || slot === "end")){
+                if(currentMode == "test"){
+                    file.slots[slot].jig_test.push(command);
+                }
+                else{
+                    file.slots[slot].jig_error.push(command);
+                }
+            }
+            else{
+                if(slot === "begin"){
+                    file.slots[0].jig_test.push(command);
+                }
+                else{
+                    file.slots[3].jig_test.push(command);
+                }
+            }
 			
-			file.firmwares.push(command);
+			file.firmwares.push(node.filename);
 			
 			globalContext.set("exportFile", file);
 			console.log(command)
