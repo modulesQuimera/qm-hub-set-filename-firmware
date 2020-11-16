@@ -12,8 +12,9 @@
 		outputs:1,
 		icon: "CPU.svg",
 		label: function() {
-			return this.name? "Set Name Firmware - " + this.name: "Set Name Firmware";
+			return this.name? "Update Firmware - " + this.name: "Update Firmware";
 		},
+		paletteLabel: "Update Firmware",
 		oneditprepare: function() { 
 			var node = this;
 			var scope = node.scope || [];
